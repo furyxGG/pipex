@@ -3,8 +3,10 @@ NAME	=	srcs.a
 CC		=	cc
 CFLAGS	=	-Wall -Werror -Wextra -I ../includes/libft -I ../includes/get_next_line -I ../includes/ft_printf
 
-SRCS	=	pipex.c	\
-			parser.c
+SRCS	=	pipex.c			\
+			parser.c		\
+			check_command.c	\
+			helper.c
 
 OBJS	=	$(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 19:21:46 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/10/26 20:36:11 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/10/26 22:17:55 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	**parser(int argc, char **argv, char **envt, int funct)
 		while (ccount)
 		{
 			argums[a] = (char *)malloc((ft_strlen(argv[a + 2]) + 1) * sizeof(char));
-			ft_strlcpy(argums[a], argv[a + 2], ft_strlen(argv[2]) + 1);
+			ft_strlcpy(argums[a], argv[a + 2], ft_strlen(argv[a + 2]) + 1);
 			ccount--;
 			a++;
 		}
