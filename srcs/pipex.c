@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/24 03:49:22 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/10/26 19:15:20 by fyagbasa         ###   ########.fr       */
+/*   Created: 2025/10/26 19:19:02 by fyagbasa          #+#    #+#             */
+/*   Updated: 2025/10/26 20:36:27 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	main(int argc, char **argv, char **envt)
+void	pipex(int argc, char **argv, char **envt)
 {
-	if (argc < 5)
-	{
-		perror("Argüman sayısı yetersiz.");
-		return (0);
-	}
-	pipex(argc, argv, envt);
-	return (1);
+	
 }
