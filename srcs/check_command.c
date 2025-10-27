@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 20:43:22 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/10/27 20:17:47 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/10/27 21:28:21 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,4 @@ static void	check_helper(char *command, t_pipex *pipexlist)
 void	check_command_exist(t_pipex *pipexlist, int a)
 {
 	check_helper(pipexlist->argums[a], pipexlist);
-	free_pipex(pipexlist);
 }

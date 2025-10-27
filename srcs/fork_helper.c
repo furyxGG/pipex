@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 00:33:31 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/10/27 20:09:06 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/10/27 21:34:00 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ void	forkit(t_pipex *pipexlist, int argc, int ifd, int ofd, char **envt)
                 close(ofd);
 			}
 			execit(pipexlist, a, envt);
-			perror("execve");
-			exit(1);
 		}
 		else //parent
 		{
@@ -64,4 +62,5 @@ void	forkit(t_pipex *pipexlist, int argc, int ifd, int ofd, char **envt)
         waitpid(childpids[a], NULL, 0);
         a++;
     }
+	free(childpids);
 }

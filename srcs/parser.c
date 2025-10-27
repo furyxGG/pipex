@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 19:21:46 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/10/26 22:17:55 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/10/27 21:36:53 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ char	**parser(int argc, char **argv, char **envt, int funct)
 	int		a;
 	
 	a = 0;
+	argums = NULL;
 	if (funct == 1) // command parser
 	{
 		(void)envt;

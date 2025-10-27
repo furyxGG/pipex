@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 19:19:02 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/10/27 19:42:28 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/10/27 21:36:56 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ void	pipex(int argc, char **argv, char **envt)
 		exit(1);
 	}
 	pipexlist = malloc(sizeof(t_pipex));
+	pipexlist->currentpath = NULL;
 	pipexlist->argums = parser(argc, argv, envt, 1);
 	pipexlist->paths = parser(argc, argv, envt, 2);
 	forkit(pipexlist, argc, ifd, ofd, envt);
+	free_pipex(pipexlist);
 }

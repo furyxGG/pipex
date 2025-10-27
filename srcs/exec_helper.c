@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 00:45:57 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/10/27 20:14:28 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/10/27 21:33:24 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,6 @@ void	execit(t_pipex *pipexlist, int a, char **envt)
 	com_exec = give_exec_comm(pipexlist->argums[a]);
 	check_command_exist(pipexlist, a);
 	execve(pipexlist->currentpath, com_exec, envt);
+	free_list(com_exec);
+	perror("pipex (execve error)");
 }
