@@ -6,7 +6,9 @@ CFLAGS	=	-Wall -Werror -Wextra -I ../includes/libft -I ../includes/get_next_line
 SRCS	=	pipex.c			\
 			parser.c		\
 			check_command.c	\
-			helper.c
+			helper.c		\
+			fork_helper.c	\
+			exec_helper.c
 
 OBJS	=	$(SRCS:.c=.o)
 
