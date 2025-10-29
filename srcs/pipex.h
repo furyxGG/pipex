@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 03:51:38 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/10/29 07:55:33 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/10/29 08:14:58 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	**give_exec_comm(char *argum);
 void	check_command_exist(t_pipex *pipexlist, int a);
 
 void	forkit(t_pipex *pipexlist, int ifd, int ofd, char **envt);
-void	execit(t_pipex *pipexlist, int a, char **envt);
+void	execit(t_pipex *pipexlist, int a, char **envt, pid_t *childpids);
 
 int		here_take(char	*limiter);
 

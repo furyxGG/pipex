@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 00:33:31 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/10/29 07:58:07 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/10/29 11:48:22 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ void	forkit(t_pipex *pipexlist, int ifd, int ofd, char **envt)
 			}
 			else
 				dup2(ifd, STDIN_FILENO);
-            close(ifd);
+			if (ifd != -1)
+            	close(ifd);
 			if (a != pipexlist->commandcnt - 1)
 			{
 				dup2(fd[1], STDOUT_FILENO);
@@ -75,11 +76,12 @@ void	forkit(t_pipex *pipexlist, int ifd, int ofd, char **envt)
 				dup2(ofd, STDOUT_FILENO);
                 close(ofd);
 			}
-			execit(pipexlist, a, envt);
+			execit(pipexlist, a, envt, childpids);
 		}
 		else //parent
 		{
-			close(ifd);
+			if (ifd != -1)
+            	close(ifd);
 			if (a != pipexlist->commandcnt - 1)
             {
                 close(fd[1]);

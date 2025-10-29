@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 05:35:59 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/08/14 13:30:11 by fyagbasa         ###   ########.tr       */
+/*   Updated: 2025/10/29 09:06:11 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,30 @@ static char	*giveline(char **allines)
 	return (line);
 }
 
+void	free_gnl(char	**allines)
+{
+	int	a;
+
+	a = 0;
+	while (a < 4048)
+	{
+		if (allines[a])
+		{
+			free(allines[a]);
+			allines[a] = NULL;
+		}
+		a++;
+	}
+	
+}
+
 char	*get_next_line(int fd)
 {
 	static char	*allines[4048];
 	char		*line;
-
+	
+	if (fd == -42)
+		free_gnl(allines);
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	allines[fd] = takedata(fd, allines[fd]);
