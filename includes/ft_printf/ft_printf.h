@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 03:50:06 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/08/05 02:09:25 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/10/29 12:48:19 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		ft_printptr(unsigned long long addr, int a);
 int		ft_printnum(int nbr, char c);
 char	*ft_uitoa(unsigned int nbr);
 int		ft_basenum(unsigned int nbr);
-char    *ft_itoa(int n);
+char	*ft_itoa(int n);
 int		ft_printhex(unsigned int nbr, char c);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 13:43:16 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/10/29 09:01:41 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/10/29 12:08:22 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	here_take(char	*limiter)
 	char	*content;
 	int		fd[2];
 	char	*templimiter;
-	
+
 	if (pipe(fd) == -1)
 		exit(1);
 	templimiter = ft_strjoin(limiter, "\n");
@@ -28,7 +28,7 @@ int	here_take(char	*limiter)
 		if (ft_strncmp(content, templimiter, ft_strlen(content)) == 0)
 		{
 			free(content);
-			break;
+			break ;
 		}
 		ft_putstr_fd(content, fd[1]);
 		free(content);

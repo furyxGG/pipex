@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 03:51:38 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/10/29 08:14:58 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/10/29 12:46:24 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <fcntl.h>
 # include <sys/wait.h>
 
-typedef struct	s_pipex
+typedef struct s_pipex
 {
 	char	**paths;
 	char	**argums;
@@ -29,7 +29,6 @@ typedef struct	s_pipex
 	int		funct;
 	int		commandcnt;
 }				t_pipex;
-
 
 void	pipex(int argc, char **argv, char **envt, int heredoc);
 

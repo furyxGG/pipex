@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 00:33:31 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/10/29 11:48:22 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/10/29 12:42:50 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 void	forkit(t_pipex *pipexlist, int ifd, int ofd, char **envt)
 {
-	int	a;
-	int	fd[2];
-	pid_t *childpids = malloc((pipexlist->commandcnt) * sizeof(pid_t));
+	int		a;
+	int		fd[2];
+	int		nullfd;
+	pid_t	*childpids;
+
+	childpids = malloc((pipexlist->commandcnt) * sizeof(pid_t));
 	if (!childpids)
 	{
 		perror("pipex: childpids malloc");
@@ -25,7 +28,6 @@ void	forkit(t_pipex *pipexlist, int ifd, int ofd, char **envt)
 		free_pipex(pipexlist);
 		exit(1);
 	}
-
 	a = 0;
 	while (a < pipexlist->commandcnt)
 	{
@@ -48,55 +50,55 @@ void	forkit(t_pipex *pipexlist, int ifd, int ofd, char **envt)
 			close(ofd);
 			exit(1);
 		}
-		else if (childpids[a] == 0) //child
+		else if (childpids[a] == 0)
 		{
 			if (ifd == -1)
 			{
-				int nullfd = open("/dev/null", O_RDONLY);
+				nullfd = open("/dev/null", O_RDONLY);
 				if (nullfd == -1)
 				{
 					perror("pipex");
 					exit(1);
 				}
-    			dup2(nullfd, STDIN_FILENO);
-    			close(nullfd);
+				dup2(nullfd, STDIN_FILENO);
+				close(nullfd);
 			}
 			else
 				dup2(ifd, STDIN_FILENO);
 			if (ifd != -1)
-            	close(ifd);
+				close(ifd);
 			if (a != pipexlist->commandcnt - 1)
 			{
 				dup2(fd[1], STDOUT_FILENO);
-                close(fd[1]);
-                close(fd[0]);
+				close(fd[1]);
+				close(fd[0]);
 			}
 			else
 			{
 				dup2(ofd, STDOUT_FILENO);
-                close(ofd);
+				close(ofd);
 			}
 			execit(pipexlist, a, envt, childpids);
 		}
-		else //parent
+		else
 		{
 			if (ifd != -1)
-            	close(ifd);
+				close(ifd);
 			if (a != pipexlist->commandcnt - 1)
-            {
-                close(fd[1]);
-                ifd = fd[0];
-            }
+			{
+				close(fd[1]);
+				ifd = fd[0];
+			}
 			else
 				close(fd[0]);
 		}
 		a++;
 	}
 	a = 0;
-    while (a < pipexlist->commandcnt)
-    {
-        waitpid(childpids[a], NULL, 0);
-        a++;
-    }
+	while (a < pipexlist->commandcnt)
+	{
+		waitpid(childpids[a], NULL, 0);
+		a++;
+	}
 	free(childpids);
 }

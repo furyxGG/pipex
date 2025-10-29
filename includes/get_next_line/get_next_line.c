@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 05:35:59 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/10/29 09:06:11 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/10/29 12:47:57 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,13 @@ void	free_gnl(char	**allines)
 		}
 		a++;
 	}
-	
 }
 
 char	*get_next_line(int fd)
 {
 	static char	*allines[4048];
 	char		*line;
-	
+
 	if (fd == -42)
 		free_gnl(allines);
 	if (fd < 0 || BUFFER_SIZE <= 0)
