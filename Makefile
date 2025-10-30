@@ -6,7 +6,7 @@ PRINTF	=	./includes/ft_printf/libftprintf.a
 SOURCES	=	./srcs/srcs.a
 
 CC		=	cc
-CFLAGS	=	-Wall -Werror -Wextra -I ./includes/libft -I ./includes/get_next_line -I ./includes/ft_printf -I ./srcs
+CFLAGS	=	-Wall -Werror -Wextra -I ./includes/libft -I ./includes/get_next_line -I ./includes/ft_printf -I ./srcs -g -g3
 
 SRCS	=	main.c
 OBJS	=	$(SRCS:.c=.o)

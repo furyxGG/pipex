@@ -32,7 +32,7 @@ int	main(int argc, char **argv, char **envt)
 		{
 			ft_putstr_fd("Error: insufficient number of arguments\n"
 				"Usage: ./pipex infile cmd1 cmd2 ... cmdx outfile\n"
-				"Or you can use 'HERE_DOC'\n", 2);
+				"Or you can use 'here_doc'\n", 2);
 			return (1);
 		}
 		heredoc = 0;
