@@ -9,7 +9,8 @@ SRCS	=	pipex.c			\
 			helper.c		\
 			fork_helper.c	\
 			exec_helper.c	\
-			here_doc.c
+			here_doc.c		\
+			error_helper.c
 
 OBJS	=	$(SRCS:.c=.o)
 

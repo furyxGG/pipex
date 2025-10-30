@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 03:51:38 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/10/29 12:46:24 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/10/30 14:16:16 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,12 @@ int		here_take(char	*limiter);
 
 void	free_list(char **list);
 void	free_pipex(t_pipex *pipexlist);
+
+void	pipe_error(pid_t *childpids, t_pipex *pipexlist, int ifd, int ofd);
+void	fork_error(pid_t *childpids, t_pipex *pipexlist, int ifd, int ofd);
+
+void	child_helper_one(int a, t_pipex *pipexlist, int fd[2], int ofd);
+void	child_helper_two(int ifd);
+void	null_helper(void);
 
 #endif

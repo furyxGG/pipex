@@ -6,11 +6,18 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 20:43:22 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/10/29 12:43:49 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/10/30 13:36:03 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+static void	path_helper(t_pipex *pipexlist, char **temp2, char ***com_exec)
+{
+	pipexlist->currentpath = ft_strdup(*temp2);
+	free_list(*com_exec);
+	free(*temp2);
+}
 
 static void	exit_help(char **com_exec)
 {
@@ -40,16 +47,12 @@ static void	path_comm_check(char *command, t_pipex *pipexlist)
 		temp2 = ft_strjoin(temp, com_exec[0]);
 		free(temp);
 		if (access(temp2, X_OK) != 0)
-		{
 			free(temp2);
-		}
 		else
 		{
 			if (pipexlist->currentpath != NULL)
 				free(pipexlist->currentpath);
-			pipexlist->currentpath = ft_strdup(temp2);
-			free_list(com_exec);
-			free(temp2);
+			path_helper(pipexlist, &temp2, &com_exec);
 			return ;
 		}
 		a++;
