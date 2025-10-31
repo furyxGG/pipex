@@ -6,13 +6,12 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 19:21:46 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/10/29 12:38:50 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/10/31 13:32:29 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-/* command parser = 1
- 	path parser = 2 */
+
 static void	set_variables(int argc, int *ccount,
 	int *findex, t_pipex *pipexlist)
 {

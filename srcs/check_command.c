@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 20:43:22 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/10/30 13:36:03 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/10/31 13:39:20 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,12 @@ static void	path_comm_check(char *command, t_pipex *pipexlist)
 
 	com_exec = give_exec_comm(command);
 	a = 0;
+	if (!com_exec[a])
+	{
+		free_list(com_exec);
+		ft_putstr_fd("pipex: command not found: \n", 2);
+		return ;
+	}
 	while (pipexlist->paths[a])
 	{
 		temp = ft_strjoin(pipexlist->paths[a], "/");
